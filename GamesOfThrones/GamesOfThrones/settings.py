@@ -9,6 +9,8 @@
 #     http://scrapy.readthedocs.org/en/latest/topics/downloader-middleware.html
 #     http://scrapy.readthedocs.org/en/latest/topics/spider-middleware.html
 
+
+
 BOT_NAME = 'GamesOfThrones'
 
 SPIDER_MODULES = ['GamesOfThrones.spiders']
@@ -88,3 +90,14 @@ ROBOTSTXT_OBEY = True
 #HTTPCACHE_DIR = 'httpcache'
 #HTTPCACHE_IGNORE_HTTP_CODES = []
 #HTTPCACHE_STORAGE = 'scrapy.extensions.httpcache.FilesystemCacheStorage'
+
+#ITEM_PIPELINES = ['GameOfThrones.GamesofthronesPipeline', ]
+ITEM_PIPELINES = {
+    'GamesOfThrones.pipelines.GamesofthronesPipeline': 0,
+   #'myproject.pipelines.JsonWriterPipeline': 800,
+}
+
+MONGODB_SERVER = "localhost"
+MONGODB_PORT = 27017
+MONGODB_DB = "reddit"
+MONGODB_COLLECTION = "got"
